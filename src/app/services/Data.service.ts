@@ -49,13 +49,6 @@ export class DataService {
                 required: false,
                 order: 1
             }),
-            new TextboxQuestion({
-                key: 'place',
-                label: 'Coffee Place',
-                value: '',
-                required: false,
-                order: 2
-            }),
             new DropdownQuestion({
                 key: 'type',
                 label: 'Coffee Type',
@@ -64,14 +57,35 @@ export class DataService {
                     { key: 'americano', value: 'Americano' },
                     { key: 'cappucino', value: 'Cappucino' },
                 ],
-                order: 3,
+                order: 2,
+            }),
+            new TextboxQuestion({
+                key: 'place',
+                label: 'Coffee Place',
+                value: '',
+                required: false,
+                order: 3
+            }),
+            new TextboxQuestion({
+                key: 'address',
+                label: 'Address',
+                value: '',
+                required: false,
+                order: 4
+            }),
+            new TextboxQuestion({
+                key: 'city',
+                label: 'City',
+                value: '',
+                required: false,
+                order: 5
             }),
             new TextboxQuestion({
                 key: 'notes',
                 label: 'Coffee Notes',
                 value: '',
                 required: false,
-                order: 4
+                order: 6
             }),
         ];
 
