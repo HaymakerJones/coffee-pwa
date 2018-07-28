@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GeoLocationService } from './services/GeoLocation.service';
 import { DataService } from './services/Data.service';
+import { QuestionControlService } from './services/question-control.service';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 //Angular Material Components
 import { MatCheckboxModule } from '@angular/material';
@@ -36,16 +39,21 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
+
 import { AppRoutingModule } from './app-routing';
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { CoffeeComponent } from './coffee/coffee.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { QuestionComponent } from './dynamic-form/question/question.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
-    CoffeeComponent
+    CoffeeComponent,
+    DynamicFormComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -81,11 +89,13 @@ import { CoffeeComponent } from './coffee/coffee.component';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    ReactiveFormsModule,
     AppRoutingModule,
   ],
   providers: [
     GeoLocationService,
     DataService,
+    QuestionControlService,
   ],
   bootstrap: [AppComponent]
 })

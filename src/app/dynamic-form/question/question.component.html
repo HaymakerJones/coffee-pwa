@@ -1,0 +1,32 @@
+<div [formGroup]="form">
+
+  <!-- <label [attr.for]="question.key">{{question.label}}</label> -->
+  <div [ngSwitch]="question.controlType">
+
+    <mat-form-field *ngSwitchCase="'textbox'">
+      <input matInput [placeholder]="question.label" [type]="question.type" [formControlName]="question.key" [id]="question.key">
+    </mat-form-field>
+
+    <mat-form-field *ngSwitchCase="'dropdown'">
+      <mat-select [placeholder]="question.label" [id]="question.key" [formControlName]="question.key">
+        <mat-option *ngFor="let opt of question.options" [value]="opt.key">
+          {{opt.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-checkbox *ngSwitchCase="'checkbox'" [formControlName]="question.key" [id]="question.key"></mat-checkbox>
+
+    <mat-radio-group *ngSwitchCase="'radio'" [formControlName]="question.key">
+      <label *ngFor="let opt of question.options">
+        <mat-radio-button [id]="opt.key" [value]="opt.value">
+          {{opt.value}}
+        </mat-radio-button>
+      </label>
+    </mat-radio-group>
+
+  </div>
+
+</div>
+
+<div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
