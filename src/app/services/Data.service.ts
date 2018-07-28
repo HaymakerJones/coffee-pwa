@@ -27,6 +27,8 @@ export class DataService {
                 }),
             }),
         ];
+
+        callback(list);
     }
 
     save(coffee, callback) {
