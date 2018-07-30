@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
     if (navigator['standalone'] == undefined) {
       //Its not ios
-      if (window.matchMedia("(display-mode: browser").matches) {
+      if (window.matchMedia("(display-mode: browser)").matches) {
         //We are in the browser
         window.addEventListener("beforeinstallprompt", event => {
           event.preventDefault();

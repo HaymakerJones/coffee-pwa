@@ -45,6 +45,8 @@ import { AppRoutingModule } from './app-routing';
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { CoffeeComponent } from './coffee/coffee.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -91,6 +93,7 @@ import { CoffeeComponent } from './coffee/coffee.component';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     GeoLocationService,
