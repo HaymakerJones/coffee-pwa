@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GeoLocationService } from './services/GeoLocation.service';
-import { DataService } from './services/Data.service';
-import { QuestionControlService } from './services/question-control.service';
-import { ReactiveFormsModule } from '@angular/forms';
+
+import { FormsModule } from '@angular/forms';
+import { DataService } from './services/data.service';
 
 
 //Angular Material Components
@@ -44,16 +44,14 @@ import { AppRoutingModule } from './app-routing';
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { CoffeeComponent } from './coffee/coffee.component';
-import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
-import { QuestionComponent } from './dynamic-form/question/question.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     CoffeeComponent,
-    DynamicFormComponent,
-    QuestionComponent
+
   ],
   imports: [
     BrowserModule,
@@ -89,13 +87,12 @@ import { QuestionComponent } from './dynamic-form/question/question.component';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    ReactiveFormsModule,
+    FormsModule,
     AppRoutingModule,
   ],
   providers: [
     GeoLocationService,
-    DataService,
-    QuestionControlService,
+    DataService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,24 @@
+mat-card {
+    margin-top: 20px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+mat-slider {
+    width: 90%;
+}
+
+.tasting {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-card-actions {
+    display: flex;
+
+    * {
+        flex: 1 1 auto;
+    }
+}
