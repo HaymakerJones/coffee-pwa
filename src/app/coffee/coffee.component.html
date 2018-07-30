@@ -8,7 +8,7 @@
             </mat-form-field>
 
             <mat-form-field>
-                <mat-select placeholder="Coffee Type" [(ngModel)]="coffee.type">
+                <mat-select placeholder="Coffee Type" name="type" [(ngModel)]="coffee.type">
                     <mat-option *ngFor="let type of types" [value]="type">
                         {{type}}
                     </mat-option>
@@ -34,7 +34,7 @@
     <mat-card class="debug-card">
         <mat-card-title>Ratings</mat-card-title>
         <mat-card-subtitle>
-            <mat-slide-toggle #tastingSelector (change)="tastingRatingChange( tastingSelector.checked )">
+            <mat-slide-toggle #tastingSelector name="tastingSelector" [(ngModel)]="tastingEnabled" (change)="tastingRatingChange( tastingSelector.checked )">
                 Tasting Rating
             </mat-slide-toggle>
         </mat-card-subtitle>

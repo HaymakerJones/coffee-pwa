@@ -9,11 +9,14 @@
   </mat-card-content> -->
 
   <mat-card-actions>
-    <button mat-button>
+    <button mat-button (click)="goMap(coffee)">
       <mat-icon>map</mat-icon>
     </button>
-    <button mat-button>
+    <button mat-button (click)="share(coffee)">
       <mat-icon>share</mat-icon>
+    </button>
+    <button mat-button (click)="goDetails( coffee )">
+      <mat-icon>list</mat-icon>
     </button>
   </mat-card-actions>
 </mat-card>

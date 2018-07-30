@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GeoLocationService } from './services/GeoLocation.service';
 
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DataService } from './services/data.service';
 
@@ -88,6 +89,7 @@ import { CoffeeComponent } from './coffee/coffee.component';
     MatSortModule,
     MatPaginatorModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
   ],
   providers: [
