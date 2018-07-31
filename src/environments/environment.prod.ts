@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  endpoint: 'http://localhost:8081/api'
+  endpoint: 'https://vast-sea-90053.herokuapp.com/api'
 };
