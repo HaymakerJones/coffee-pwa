@@ -10,7 +10,21 @@ export class AppComponent implements OnInit {
 
   constructor(private snackbar: MatSnackBar) { }
 
+  updateNetworkStatusUI() {
+    if (navigator.onLine) {
+      (document.querySelector("body") as any).style = "";
+    }
+    else {
+      (document.querySelector("body") as any).style = "filter: grayscale(1)";
+    }
+
+  }
+
   ngOnInit() {
+    this.updateNetworkStatusUI();
+    window.addEventListener("online", () => this.updateNetworkStatusUI());
+    window.addEventListener("offline", () => this.updateNetworkStatusUI());
+
     if (!navigator['standalone']) {
       //this means we are on ios and in the browser
       this.snackbar.open("You can add this PWA to your homescreen", null, { duration: 3000 });
