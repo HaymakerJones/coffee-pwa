@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private snackbar: MatSnackBar) { }
+  constructor(private snackbar: MatSnackBar, private swUpdate: SwUpdate) { }
 
   updateNetworkStatusUI() {
     if (navigator.onLine) {
@@ -21,10 +22,18 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    //Check SW Update status
+    this.swUpdate.available.subscribe(update => {
+      //Refresh service worker if there has been an update
+      this.swUpdate.activateUpdate().then(() => document.location.reload());
+    });
+
+    //Check network status
     this.updateNetworkStatusUI();
     window.addEventListener("online", () => this.updateNetworkStatusUI());
     window.addEventListener("offline", () => this.updateNetworkStatusUI());
 
+    //Check installation status
     if (!navigator['standalone']) {
       //this means we are on ios and in the browser
       this.snackbar.open("You can add this PWA to your homescreen", null, { duration: 3000 });
